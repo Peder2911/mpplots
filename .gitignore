@@ -1,0 +1,13 @@
+plots/*
+!plots/.gitkeep
+raw/*
+!raw/.gitkeep
+docs/*
+!docs/.gitkeep
+cache/*
+!cache/.gitkeep
+
+*.py[cod]
+__pycache__/*
+*.swp
+.mypy_cache/*

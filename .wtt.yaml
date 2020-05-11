@@ -1,0 +1,3 @@
+# THIS IS AN EXAMPLE FILE
+- filetype: .py
+  call: mypy --pretty --ignore-missing-import {file} && python {file} 
