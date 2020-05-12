@@ -1,0 +1,9 @@
+The ./docs folder contains codebook sheets used to annotate the plots. The
+annotations (variable names / value mappings) gathered from this folder are
+masked in some cases by "hand-defined" values in the ./docs/mask.json file.
+The mappings gleamed from the raw codebook are cached in the ./cache folder.
+
+The ./raw folder contains the raw dataset.
+
+
+

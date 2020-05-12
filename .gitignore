@@ -6,8 +6,12 @@ docs/*
 !docs/.gitkeep
 cache/*
 !cache/.gitkeep
+shp/*
+!shp/.gitkeep
 
 *.py[cod]
 __pycache__/*
 *.swp
 .mypy_cache/*
+
+depr/*
