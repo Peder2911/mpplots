@@ -18,6 +18,14 @@ import re
 
 fixedVname = lambda x: re.sub("(_AT|_FW)$","",x)
 
+stripPrefix = lambda x: re.sub("(_FW|_AT)$","",x)
+
+def daneCode(v):
+    try:
+        return "{0:05d}".format(int(v))
+    except ValueError:
+        return pd.NA
+
 def genDeptName(name):
     return re.sub("[^A-Za-z]","",name)[:3].lower()
 
@@ -75,6 +83,7 @@ def getMergedCodebook(raw: pd.DataFrame)-> Dict[str,Dict[str,str]]:
             dat[vname] = None
             continue
             
+        print(nones.values())
         dat[vname] = v
 
     def fixValue(value):

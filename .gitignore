@@ -8,6 +8,8 @@ cache/*
 !cache/.gitkeep
 shp/*
 !shp/.gitkeep
+stats/*
+!stats/.gitkeep
 
 *.py[cod]
 __pycache__/*
