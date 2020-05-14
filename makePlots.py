@@ -15,26 +15,13 @@ import contextily as ctx
 
 from util import getDescriptionsFromExcel, getCodebookFromExcel, lookup, genDeptName, daneCode, stripPrefix
 from mytypes import Codebook,Descriptions
+from style import mapsCmap, barColor
 
 import multiprocessing as mp
 
 # ========================================================
 #
-
 sns.set(font_scale = 1.5)
-
-mapsColors = [
-    (255,194,0),
-    (237,125,47),
-    (165,163,166),
-    (68,115,197),
-]
-
-barColor = "#66BDE7"
-
-mapsColors = [[c / 255 for c in rgb] for rgb in mapsColors]
-
-snsCmap = ListedColormap(mapsColors)
 
 # ========================================================
 #
@@ -228,7 +215,7 @@ def makeMap(row):
         )
     else:
         mapPlot = a.plot(column="<lambda>", ax = b,
-            cmap=snsCmap,
+            cmap=mapsCmap,
             legend=True,edgecolor="#606060",categorical = True 
         )
 
