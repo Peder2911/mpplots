@@ -83,7 +83,6 @@ def getMergedCodebook(raw: pd.DataFrame)-> Dict[str,Dict[str,str]]:
             dat[vname] = None
             continue
             
-        print(nones.values())
         dat[vname] = v
 
     def fixValue(value):
