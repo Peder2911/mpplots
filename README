@@ -1,9 +1,27 @@
-The ./docs folder contains codebook sheets used to annotate the plots. The
-annotations (variable names / value mappings) gathered from this folder are
-masked in some cases by "hand-defined" values in the ./docs/mask.json file.
-The mappings gleamed from the raw codebook are cached in the ./cache folder.
 
-The ./raw folder contains the raw dataset.
+These scripts depend on the following files:
 
+docs/codebook_merged.xlsx c2faf675bfb1fd95385094f2bdebc2cc 
+raw/merged_data_PDET.csv a3f7b59fd8ab215c446e3e8e3c5bbd83
+
+shp/mun_geo.dbf 06ce12b76a3801374924de4114396acc
+shp/mun_geo.prj c742bee3d4edfc2948a2ad08de1790a5
+shp/mun_geo.sbn 1387811ad2780bc3096c2f2f9789e898
+shp/mun_geo.sbx bd5cb49f70ceb7a09daa2249707e3305
+shp/mun_geo.shp 05680dd02ea92bb0d7b62172c1b5316d
+shp/mun_geo.shp.xml 0ffd6e7d6a2db8c9bc32b341515b93e7
+shp/mun_geo.shx eb4decbfc64a2b2105e6470e3689abc1
+
+shp/dtos_geo.dbf a522049decc1784ff080a1f32697003a
+shp/dtos_geo.prj c742bee3d4edfc2948a2ad08de1790a5
+shp/dtos_geo.sbn f9e15f3fa7859203b4f73b7a5ded13c7
+shp/dtos_geo.sbx ba1a738e45bfd4e80974644bdc37c557
+shp/dtos_geo.shp 4a9a270ff155888473efa56aff4bb604
+shp/dtos_geo.shp.xml 5d4af685ffa3ed965c40284d5a38e159
+shp/dtos_geo.shx 77bbdad87786f3bc606b03d637526318
+
+raw/MunicipiosPDET.csv 6d1ccfb9f7ef2efd16ee5dd3a0195019
+
+Also, remember to install dependencies from requirements.txt
 
 
