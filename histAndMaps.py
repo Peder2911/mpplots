@@ -15,7 +15,7 @@ import contextily as ctx
 
 from util import getDescriptionsFromExcel, getCodebookFromExcel, lookup, genDeptName, daneCode, stripPrefix
 from mytypes import Codebook,Descriptions
-from style import mapsCmap, barColor
+from style import mapsCmap,mapsColors,extendedColors,cfloats, barColor
 
 import multiprocessing as mp
 
@@ -139,13 +139,24 @@ def makePlot(r):
     plt.clf()
     fig,ax = plt.subplots()
 
-    chart = sns.barplot(y=labels,x=percentages,ax = ax,color = barColor)
+    args = {
+        "x": percentages,
+        "y": labels,
+        "ax": ax,
+    }
+    #if len(percentages) < 11:
+    args["palette"] = cfloats(extendedColors) 
+    #else:
+    #    args["color"] = barColor
+
+    #chart = sns.barplot(y=labels,x=percentages,ax = ax,color = barColor)
+    chart = sns.barplot(**args)
 
     plt.title(title)
     plt.xlabel("Percent of respondents %")
     plt.ylabel("")
     plt.subplots_adjust(left = 0.3,top=0.85)
-    fig.set_size_inches(14,9)
+    fig.set_size_inches(14,11)
 
     print(f"Saving plot for {slide}_{variable}")
     plt.savefig(plotname)
@@ -210,7 +221,9 @@ def makeMap(row):
 
     if not cat:
         mapPlot = a.plot(column="pst", ax = b,
-            legend=True,edgecolor="#606060",cmap="viridis",#alpha = 0.9,#cmap="rainbow",
+            legend=True,edgecolor="#606060",cmap=ListedColormap(sns.color_palette("RdBu_r")),#"viridis",#alpha = 0.9,#cmap="rainbow",
+
+#sns.diverging_palette(220, 20, n=7)
             legend_kwds={"label":leg}
         )
     else:

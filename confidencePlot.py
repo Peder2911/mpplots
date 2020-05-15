@@ -2,7 +2,7 @@
 import pandas as pd
 from string import ascii_letters
 
-from util import getCodebookFromExcel, getDescriptionsFromExcel
+from util import getCodebookFromExcel, getDescriptionsFromExcel,fixMissing
 
 import seaborn as sns
 from matplotlib import pyplot as plt
@@ -36,16 +36,12 @@ def varTgt(c):
     if m:
         ent = m[0]
         ent = re.sub("([Ii]n )?([Tt]he )?","",ent).title()
+        ent = re.sub("[Cc]amera","Congress",ent).title()
         ent = "\n".join(textwrap.wrap(ent,40))
         return ent
     else:
         return "NA"
 
-def fixMissing(v):
-    if v > 0:
-        return v
-    else:
-        return pd.NA
 for c in columns:
     data[c] = data[c].apply(fixMissing)
 

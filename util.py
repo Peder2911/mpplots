@@ -63,12 +63,24 @@ def getMergedCodebook(raw: pd.DataFrame)-> Dict[str,Dict[str,str]]:
     dat: Dict[str,Union[Dict,None]] = dict()
     nones = defaultdict(list) 
 
+    replacements = {
+        "Apply": "Yes",
+        "Does not apply": "No"
+    }
+    def fixValue(value):
+        try:
+            return replacements[value]
+        except KeyError:
+            return value
+
     for idx,r in raw.iterrows():
         vname = r["Variablename"].upper()
         vname = fixedVname(vname)
 
         try:
             v = yaml.safe_load(r["Alternatives"])
+            print(v)
+            v = {k:fixValue(v) for k,v in v.items()}
         except: 
             dat[vname] = None
             continue
@@ -146,6 +158,12 @@ def lookup(values: np.array,idx:str,cb: Codebook)-> pd.Series:
     uval = set(values)
 
     return pd.Series([*map(lookup,values)],dtype=dtype)
+
+def fixMissing(v):
+    if v > -1:
+        return v
+    else:
+        return pd.NA
 
 if __name__ == "__main__":
     codebook = getCodebookFromExcel("docs/codebook_merged.xlsx")
