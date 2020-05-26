@@ -21,7 +21,7 @@ import multiprocessing as mp
 
 # ========================================================
 #
-sns.set(font_scale = 1.5)
+sns.set(font_scale = 1.8)
 
 # ========================================================
 #
@@ -190,6 +190,7 @@ def makeMap(row):
         #fn = lambda x: np.mean([v for v in x if v in [1,2,3,4]])
         fn = lambda x: sum([v in [3,4] for v in x])
         leg = "\n\n% satisfied"
+    
     elif maptype == "yesno":
         fn = lambda x: sum(x == 1)
         leg = "\n\n% yes"
