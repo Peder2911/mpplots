@@ -1,5 +1,15 @@
 plots/*
 !plots/.gitkeep
+
+plots/corr/*
+!plots/corr/.gitkeep
+
+plots/oddonesout/*
+!plots/oddonesout/.gitkeep
+
+plots/munigroups/*
+!plots/munigroups/.gitkeep
+
 raw/*
 !raw/.gitkeep
 docs/*
