@@ -165,6 +165,17 @@ def fixMissing(v):
     else:
         return pd.NA
 
+def orderedCats(cbdict):
+    items = [(k,v) for k,v in cbdict.items()]
+    items.sort(key = lambda x: int(x[0]))
+    return [v for k,v in items]
+
+def fixCatVar(v,vname,cb):
+    return pd.Categorical(
+        v.apply(lambda x: cb[vname.upper()][str(int(x))]),
+        categories=orderedCats(cb[vname.upper()])[2:],
+        ordered=True)
+
 if __name__ == "__main__":
     codebook = getCodebookFromExcel("docs/codebook_merged.xlsx")
     desc = getDescriptionsFromExcel("docs/codebook_merged.xlsx")
