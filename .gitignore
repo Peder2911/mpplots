@@ -27,3 +27,6 @@ __pycache__/*
 .mypy_cache/*
 
 depr/*
+
+dofiles/*
+!dofiles/.gitkeep
