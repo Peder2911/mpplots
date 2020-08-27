@@ -30,3 +30,5 @@ depr/*
 
 dofiles/*
 !dofiles/.gitkeep
+
+venv/
