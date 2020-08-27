@@ -16,7 +16,7 @@ from toolz import curry
 import re
 
 
-fixedVname = lambda x: re.sub("(_AT|_FW)$","",x)
+fixedVname = lambda x: re.sub("(_AT|_FW)$","",str(x))
 
 stripPrefix = lambda x: re.sub("(_FW|_AT)$","",x)
 
@@ -74,7 +74,7 @@ def getMergedCodebook(raw: pd.DataFrame)-> Dict[str,Dict[str,str]]:
             return value
 
     for idx,r in raw.iterrows():
-        vname = r["Variablename"]#.upper()
+        vname = str(r["Variablename"]).upper()
         vname = fixedVname(vname)
 
         try:
