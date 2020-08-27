@@ -1,9 +1,9 @@
 
 from util import getCodebookFromExcel
 import pandas as pd
+import sys
 
-cb = getCodebookFromExcel("docs/cb2.xlsx")
-
+cb = getCodebookFromExcel(sys.argv[1])
 
 frames = []
 for var, valMap in cb.items():
@@ -36,7 +36,7 @@ dolines = []
 
 print("Writing some STATA code...")
 for idx,ln in vlines.iterrows():
-    dolines.append(" ".join(["label define",ln["variable"],ln["pair"]]))
+    dolines.append(" ".join(["label define",ln["variable"],ln["pair"]+",","replace"]))
     dolines.append(" ".join(["label values",ln["variable"],ln["variable"]]))
 with open("dofiles/translate.do","w") as f:
     f.write("\n".join(dolines))
