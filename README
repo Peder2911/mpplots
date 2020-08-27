@@ -24,4 +24,8 @@ raw/MunicipiosPDET.csv 6d1ccfb9f7ef2efd16ee5dd3a0195019
 
 Also, remember to install dependencies from requirements.txt
 
+The transformations performed on the codebook are cached, which means that if
+you change the codebook, you also need to delete the cached stuff to see the
+changes reflected (cache/codebook.json and cache/description.json).
 
+histAndMaps.py generates most of the plots.
