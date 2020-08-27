@@ -74,12 +74,12 @@ def getMergedCodebook(raw: pd.DataFrame)-> Dict[str,Dict[str,str]]:
             return value
 
     for idx,r in raw.iterrows():
-        vname = r["Variablename"].upper()
+        vname = r["Variablename"]#.upper()
         vname = fixedVname(vname)
 
         try:
             v = yaml.safe_load(r["Alternatives"])
-            print(v)
+            #print(v)
             v = {k:fixValue(v) for k,v in v.items()}
         except: 
             dat[vname] = None
