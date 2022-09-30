@@ -19,7 +19,7 @@ geopy==1.22.0
 idna==2.9
 jdcal==1.4.1
 jedi==0.17.0
-joblib==0.14.1
+joblib==1.2.0
 kiwisolver==1.2.0
 konch==4.2.2
 matplotlib==3.2.1
